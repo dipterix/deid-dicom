@@ -62,32 +62,40 @@ python ./dicom-deid.py
 If you have [`R` installed](https://cran.r-project.org/), the following commands will
 
 * Download python and install dependencies
-* Download the script app to 
+* Download the script app to your desktop
+* De-identify the images
 
+1. One-time set up: (only run once and no need to run in the future)
 
 ```r
-app_dir <- "~/Desktop/DICOM-app"
-
+# Install packages 
 install.packages("remotes")
 remotes::install_github("ravepy")
 
 # Configure miniconda environment
 ravepy::configure(packages = c('matplotlib', 'pydicom', 'numpy', 'deid'))
-
-# Download the script to Desktop
-tmpfile <- tempfile(fileext = ".zip")
-utils::download.file(destfile = tmpfile)
-unzip(tmpfile, exdir = app_dir)
 ```
 
-Please go to your `desktop > DICOM-app`, copy-paste the DICOM images to be de-identified to `dicom/` folder. Go back to `R`, run the following commands. To make sure correct python is loaded, **restart R session first**
+2. Download the latest version
 
 ```r
 app_dir <- "~/Desktop/DICOM-app"
+url <- "https://github.com/dipterix/deid-dicom/archive/refs/tags/latest.zip"
 
-output_dir <- file.path(app_dir, "deid-dicom")
+# Download the script to Desktop
+tmpfile <- tempfile(fileext = ".zip")
+utils::download.file(url, destfile = tmpfile)
+unzip(tmpfile, exdir = app_dir)
+```
+
+Please go to your `desktop > DICOM-app > deid-dicom-latest`, copy-paste the DICOM images to be de-identified to `dicom/` folder. Go back to `R`, run the following commands. To make sure correct python is loaded, **restart R session first**
+
+```r
+work_dir <- "~/Desktop/DICOM-app/deid-dicom-latest/app"
+
+output_dir <- file.path(work_dir, "deid-dicom")
 if(dir.exists(output_dir)){ unlink(output_dir, recursive = TRUE) }
-ravepy:::run_script('dicom-deid.py', work_dir = app_dir)
+ravepy:::run_script('dicom-deid.py', work_dir = work_dir)
 ```
 
 
