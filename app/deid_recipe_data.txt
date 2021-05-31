@@ -1,0 +1,10 @@
+{
+  "mask_top": 0,
+  "mask_bottom": 0.05,
+  "mask_left": 0,
+  "mask_right": 0.3,
+  "patient_id": "De-identified",
+  "birthday_timestamp": "20000101",
+  "study_timestamp": "20000101",
+  "accession_number": "REMOVED"
+}
