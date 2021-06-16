@@ -236,6 +236,11 @@ def mask_dcm(image_path, mask_top = [0, 0.05], mask_left = [0, 0.3], save_snapsh
   y1 = y1 if y1 < sp[yi] else sp[yi]
   # edit pixel_array
   arr = ds.pixel_array
+  # Convert color space if not RGB (most likely to be YBR_FULL_422)
+  if ds.PhotometricInterpretation != "RGB":
+    print("File `%s`: converting color space from %s to RGB..." % (image_path, ds.PhotometricInterpretation))
+    arr = dicom.pixel_data_handlers.util.convert_color_space(arr, ds.PhotometricInterpretation, "RGB")
+    ds.PhotometricInterpretation = "RGB"
   sample = None
   if len(sp) == 2:
     arr[x0:x1,y0:y1] = 0
