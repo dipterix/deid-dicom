@@ -36,7 +36,7 @@ python3 -m pip install --user matplotlib pydicom numpy deid
 
 ## Run the app directly using `Python`
 
-1. Check [here](https://github.com/dipterix/deid-dicom/archive/refs/tags/v0.3.zip) for zipped apps, or [here](https://github.com/dipterix/deid-dicom/releases/tag/latest) if the previous link does not work. Download, extract to some directory (say desktop). 
+1. Check [here](https://github.com/dipterix/deid-dicom/archive/refs/tags/v0.3.zip) for zipped apps, or [here](https://github.com/dipterix/deid-dicom/releases/tag/v0.3) if the previous link does not work. Download, extract to some directory (say desktop). 
 
 2. Copy-paste your DICOM images to `dicom/` folder (under `deid-dicom-v0.3/app/`)
 
