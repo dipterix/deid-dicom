@@ -36,9 +36,9 @@ python3 -m pip install --user matplotlib pydicom numpy deid
 
 ## Run the app directly using `Python`
 
-1. Check [here](https://github.com/dipterix/deid-dicom/archive/refs/tags/latest.zip) for zipped apps, or [here](https://github.com/dipterix/deid-dicom/releases/tag/latest) if the previous link does not work. Download, extract to some directory (say desktop). 
+1. Check [here](https://github.com/dipterix/deid-dicom/archive/refs/tags/v0.3.zip) for zipped apps, or [here](https://github.com/dipterix/deid-dicom/releases/tag/latest) if the previous link does not work. Download, extract to some directory (say desktop). 
 
-2. Copy-paste your DICOM images to `dicom/` folder (under `deid-dicom-latest/app/`)
+2. Copy-paste your DICOM images to `dicom/` folder (under `deid-dicom-v0.3/app/`)
 
 3. Remove folder `deid-dicom/` if there the folder exists (IMPORTANT)
 
@@ -76,11 +76,11 @@ remotes::install_github("ravepy")
 ravepy::configure(packages = c('matplotlib', 'pydicom', 'numpy', 'deid'))
 ```
 
-2. Download the latest version
+2. Download the latest version (v0.3 as of 2021-06-16)
 
 ```r
 app_dir <- "~/Desktop/DICOM-app"
-url <- "https://github.com/dipterix/deid-dicom/archive/refs/tags/latest.zip"
+url <- "https://github.com/dipterix/deid-dicom/archive/refs/tags/v0.3.zip"
 
 # Download the script to Desktop
 tmpfile <- tempfile(fileext = ".zip")
@@ -88,12 +88,12 @@ utils::download.file(url, destfile = tmpfile)
 unzip(tmpfile, exdir = app_dir)
 ```
 
-3. Please go to your `desktop > DICOM-app > deid-dicom-latest`, copy-paste the DICOM images to be de-identified to `dicom/` folder. 
+3. Please go to your `desktop > DICOM-app > deid-dicom-v0.3`, copy-paste the DICOM images to be de-identified to `dicom/` folder. 
 
 4. Go back to `R`, run the following commands. To make sure correct python is loaded, **restart R session first**. Run the following commands
 
 ```r
-work_dir <- "~/Desktop/DICOM-app/deid-dicom-latest/app"
+work_dir <- "~/Desktop/DICOM-app/deid-dicom-v0.3/app"
 
 output_dir <- file.path(work_dir, "deid-dicom")
 if(dir.exists(output_dir)){ unlink(output_dir, recursive = TRUE) }
