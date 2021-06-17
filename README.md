@@ -33,6 +33,26 @@ If failed, either create a virtual environment or install these packages by addi
 python3 -m pip install --user matplotlib pydicom numpy deid
 ```
 
+> Notice: `deid` package depends on an old version of `pydicom` library (1.3.0). The version is too old to convert colorspace from `YBR_FULL_422` to `RGB`. Please use the following command to check `pydicom` version. If the version is too low, update it.
+
+The code to check `pydicom` version: (Please go to terminal/cmd.exe, enter `python`, hit return button to enter python mode, then run the following code)
+
+```
+import pydicom
+# Check if it's less than 1.4.2, if yes, need to upgrade
+pydicom.__version__
+exit()
+```
+
+Code to update `pydicom`: in the terminal environment, type:
+
+```
+python3 -m pip install -U pydicom
+```
+
+If you use `--user` in the previous steps, add to the command before `-U` option: `python3 -m pip install --user -U pydicom`.
+
+Ignore the error message.
 
 ## Run the app directly using `Python`
 
